@@ -17,15 +17,32 @@
 </head>
 <body>
     <div class="container">
-        <video id="player" style="width: 800px;"></video>
-    </div>
-    <script src="https://cdn.plyr.io/3.1.0/plyr.js"></script>
+        <video id="player" style="width: 800px;" poster="https://cdn.hiskio.com/courses/172/cover/Kx5PDs98JqBrfpk">
+          <source src="src/net.360p.mp4" type="video/mp4" size="360">
+          <source src="src/net.540p.mp4" type="video/mp4" size="540">
+          <source src="src/net.720p.mp4" type="video/mp4" size="720">
+          <source src="src/net.1080p.mp4" type="video/mp4" size="1080">
 
+          <track kind="captions" label="English" srclang="en" src="src/View_From_A_Blue_Moon_Trailer-HD.en.vtt" default>
+          <track kind="captions" label="Français" srclang="fr" src="src/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+        </video>
+    </div>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values"
+        crossorigin="anonymous"></script>
+
+    <!-- Plyr core script -->
+    <script src="https://cdn.plyr.io/3.1.0/plyr.js" crossorigin="anonymous"></script>
+
+    <!-- Sharing libary (https://shr.one) -->
+    <script src="https://cdn.shr.one/1.0.1/shr.js" crossorigin="anonymous"></script>
+
+    <!-- Rangetouch to fix <input type="range"> on touch devices (see https://rangetouch.com) -->
+    <script src="https://cdn.rangetouch.com/1.0.1/rangetouch.js" async crossorigin="anonymous"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            window.player = new Plyr("video", {
+        window.onload = function () {
+          window.player = new Plyr(document.getElementById('player'), {
                 debug: true,
-                title: "View From A Blue Moon",
+                title: "現代 .Net 開發者之路 - MVC 完全精通",
                 iconUrl: "https://cdn.plyr.io/3.1.0/plyr.svg",
                 keyboard: {
                   global: true
@@ -85,50 +102,7 @@
                     advertisement: 'Ad',
                 },
             });
-
-            player.source = {
-                type: "video",
-                title: "View From A Blue Moon",
-                sources: [
-                    {
-                        src: "src/net.360p.mp4",
-                        type: "video/mp4",
-                        size: 360
-                    },
-                    {
-                        src: "src/net.540p.mp4",
-                        type: "video/mp4",
-                        size: 540
-                    },
-                    {
-                        src: "src/net.720p.mp4",
-                        type: "video/mp4",
-                        size: 720
-                    },
-                    {
-                        src: "src/net.1080p.mp4",
-                        type: "video/mp4",
-                        size: 1080
-                    }
-                ],
-                poster: "https://cdn.hiskio.com/courses/172/cover/Kx5PDs98JqBrfpk",
-                tracks: [
-                {
-                    kind: "captions",
-                    label: "English",
-                    srclang: "en",
-                    src: "src/View_From_A_Blue_Moon_Trailer-HD.en.vtt",
-                    default: true
-                },
-                {
-                    kind: "captions",
-                    label: "French",
-                    srclang: "fr",
-                    src: "src/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
-                }
-                ]
-            };
-        });
+        }
     </script>
 </body>
 </html>
