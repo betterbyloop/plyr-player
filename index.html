@@ -1,0 +1,134 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.1.0/plyr.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.1.0/demo.css?v=2">
+    <style>
+    /* This is purely for the demo */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .plyr {
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <video id="player" style="width: 800px;"></video>
+    </div>
+    <script src="https://cdn.plyr.io/3.1.0/plyr.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.player = new Plyr("video", {
+                debug: true,
+                title: "View From A Blue Moon",
+                iconUrl: "https://cdn.plyr.io/3.1.0/plyr.svg",
+                keyboard: {
+                  global: true
+              },
+              tooltips: {
+                  controls: true
+              },
+              controls: [
+                  "play-large",
+                  "restart",
+                  "rewind",
+                  "play",
+                  "fast-forward",
+                  "progress",
+                  "current-time",
+                  "duration",
+                  "mute",
+                  "volume",
+                  "captions",
+                  "settings",
+                  "pip",
+                  "airplay",
+                  "fullscreen"
+                  ],
+                  captions: {
+                      active: true
+                  },
+                  i18n: {
+                    restart: '重新播放',
+                    rewind: '倒退 {seektime} 秒',
+                    play: '播放',
+                    pause: '暫停',
+                    fastForward: '往前 {seektime} 秒',
+                    seek: 'Seek',
+                    played: 'Played',
+                    buffered: 'Buffered',
+                    currentTime: 'Current time',
+                    duration: 'Duration',
+                    volume: '音量',
+                    mute: '音量',
+                    unmute: '音量',
+                    enableCaptions: '開啟字幕',
+                    disableCaptions: '關閉字幕',
+                    enterFullscreen: '全螢幕',
+                    exitFullscreen: '全螢幕',
+                    frameTitle: 'Player for {title}',
+                    captions: '字幕',
+                    settings: '設定',
+                    speed: '播放速度',
+                    quality: '畫質',
+                    loop: '重播',
+                    start: '開始',
+                    end: '結束',
+                    all: 'All',
+                    reset: 'Reset',
+                    disabled: '關閉',
+                    advertisement: 'Ad',
+                },
+            });
+
+            player.source = {
+                type: "video",
+                title: "View From A Blue Moon",
+                sources: [
+                    {
+                        src: "src/net.360p.mp4",
+                        type: "video/mp4",
+                        size: 360
+                    },
+                    {
+                        src: "src/net.540p.mp4",
+                        type: "video/mp4",
+                        size: 540
+                    },
+                    {
+                        src: "src/net.720p.mp4",
+                        type: "video/mp4",
+                        size: 720
+                    },
+                    {
+                        src: "src/net.1080p.mp4",
+                        type: "video/mp4",
+                        size: 1080
+                    }
+                ],
+                poster: "https://cdn.hiskio.com/courses/172/cover/Kx5PDs98JqBrfpk",
+                tracks: [
+                {
+                    kind: "captions",
+                    label: "English",
+                    srclang: "en",
+                    src: "src/View_From_A_Blue_Moon_Trailer-HD.en.vtt",
+                    default: true
+                },
+                {
+                    kind: "captions",
+                    label: "French",
+                    srclang: "fr",
+                    src: "src/View_From_A_Blue_Moon_Trailer-HD.fr.vtt"
+                }
+                ]
+            };
+        });
+    </script>
+</body>
+</html>
